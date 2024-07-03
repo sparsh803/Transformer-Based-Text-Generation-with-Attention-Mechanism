@@ -1,238 +1,124 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
-</div>
-
-
-
+## Table Of Contents
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
+    <li><a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#understanding-transformer-and-attention">Understanding Transformer and Attention Mechanism</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
+    <li><a href="#implementation-details">Implementation Details</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#model-architecture">Model Architecture</a></li>
+        <li><a href="#training-the-model">Training the Model</a></li>
+        <li><a href="#text-generation">Text Generation</a></li>
+      </ul>
+    </li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#getting-started">Getting Started</a>
+      <ul>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#step-by-step-guide">Step-by-Step Guide</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+<a id="about-the-project"></a>
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+This project explores the implementation of a Generative Pre-trained Transformer (GPT) model from scratch. This model leverages the power of transformer architecture, specifically designed to handle sequential data while incorporating attention mechanisms for enhanced performance in natural language processing tasks.
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+### Understanding Transformer and Attention Mechanism
+<a id="understanding-transformer-and-attention"></a>
+The Transformer architecture revolutionized NLP by introducing a mechanism that allows capturing relationships between words in a sequence without the need for recurrent or convolutional layers. The Transformer model relies on self-attention mechanisms, which enable it to weigh the importance of different words in a sequence dynamically. This capability significantly improves the model's ability to understand context and dependencies within a text.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+## Implementation Details
+<a id="implementation-details"></a>
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+### Model Architecture
+<a id="model-architecture"></a>
 
-Use the `BLANK_README.md` to get started.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+The GPT model implemented in this project leverages the Transformer architecture, integrating multiple layers of self-attention and feedforward neural networks. Each attention head in the model learns distinct relationships between words, collectively enhancing the model's comprehension of language patterns and semantics. This enables the model to generate coherent and contextually relevant text sequences autonomously.
 
 
-### Built With
+### Training the Model
+<a id="training-the-model"></a>
+The loss function loss_fn computes the Cross Entropy Loss between predicted logits and targets. It reshapes logits and targets to facilitate computation and ensure consistency across batch dimensions, aiming to minimize the discrepancy between predicted and actual outputs during model training.
+Training the GPT model involves iterating through Config.train_iters batches. Each batch consists of inputs and corresponding targets fetched from the training dataset (train_ds). Logits are computed using the model, and a loss function (loss_fn) evaluates the difference between predicted and actual targets. The optimizer updates model parameters based on computed gradients, aiming to minimize the loss and improve model performance.
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+### Text Generation
+<a id="text-generation"></a>
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+Once trained, the GPT model demonstrated its capability to generate text autonomously. This involved providing an initial prompt or seed text to the model, which then utilized its learned parameters and attention mechanisms to predict the subsequent tokens in the sequence. The generated text reflects the model's understanding of language structure and semantics based on its training on a corpus of text data.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+<!-- BUILT WITH -->
+## Built With
+<a id="built-with"></a>
+
+* [Python](https://www.python.org/) - Programming Language
+* [PyTorch](https://pytorch.org/) - Deep Learning Framework
+* [dataclasses](https://docs.python.org/3/library/dataclasses.html) - Data Structures Library
+* [Pathlib](https://docs.python.org/3/library/pathlib.html) - File System Paths Library
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+<a id="getting-started"></a>
 
 ### Installation
+<a id="installation"></a>
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Install the required libraries using the following markdown:
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+```markdown
+- `pip install torch torchvision`
+- `pip install tqdm`
+- `pip install dataclasses`
+- `pip install pathlib`
+```
 
+Ensure all libraries are installed before proceeding with the setup on Kaggle.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+Follow these steps to get started with the project on Kaggle:
+Step-by-Step Guide
 
+<a id="step-by-step-guide"></a>
 
-<!-- USAGE EXAMPLES -->
-## Usage
+    Download the Notebook:
+        Download the Jupyter Notebook (*.ipynb) from the GitHub repository.
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+    Upload to Kaggle:
+        Click on "New Notebook" and choose the option to upload the notebook file.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+    Set the Accelerator:
+        Once the notebook is uploaded, go to the "Settings" tab.
+        Under "Accelerator", select "GPU (P100)" to utilize Kaggle's high-performance GPU for faster computation.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+    Run the Notebook:
+        Save the settings and run the notebook to train and test your deep learning model.
+        Monitor the progress and results directly within the Kaggle notebook environment.
 
 <!-- CONTACT -->
-## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+<a id="contact"></a>
+Contact
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Sparsh Gupta - sparshg2003@gmail.com
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
+Project Link: https://github.com/sparsh803/Transformer-Based-Text-Generation-with-Attention-Mechanism
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
